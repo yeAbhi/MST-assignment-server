@@ -7,7 +7,13 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors(
+  {
+    origin:['https://mst-assignment-frontend.vercel.app/'],
+    methods:["POST","GET","PUT","PATCH"],
+    credentials:true
+  }
+));
 app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"));
 // app.use(bodyParser.json({limit: '50mb'}))
