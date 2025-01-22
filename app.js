@@ -61,10 +61,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.get('/getdata',(req,res)=>{
-  res.json({
-    name:"abahay"
-  })
+app.get('/',(req,res)=>{
+  res.json("Hello world")
 })
 
 // API Endpoint to Save Profile Data
