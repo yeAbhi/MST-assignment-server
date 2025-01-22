@@ -11,7 +11,9 @@ app.use(cors(
   {
     origin:['https://mst-assignment-frontend.vercel.app/'],
     methods:["POST","GET","PUT","PATCH"],
-    credentials:true
+    credentials:true,
+    allowedHeaders: ["Content-Type", "Authorization", "X-Custom-Header"] // Add any headers you want to allow
+
   }
 ));
 app.use(bodyParser.json());
