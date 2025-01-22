@@ -7,15 +7,12 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-app.use(cors(
-  {
-    origin:['https://mst-assignment-frontend.vercel.app/'],
-    methods:["POST","GET","PUT","PATCH"],
-    credentials:true,
-    allowedHeaders: ["Content-Type", "Authorization", "X-Custom-Header"] // Add any headers you want to allow
-
-  }
-));
+app.use(cors({
+  origin: 'https://mst-assignment-frontend.vercel.app',  // Make sure this is exactly the frontend URL
+  methods: ["POST", "GET", "PUT", "PATCH"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization", "X-Custom-Header"]  // Include any headers you're using
+}));
 app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"));
 // app.use(bodyParser.json({limit: '50mb'}))
@@ -69,7 +66,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
   res.json("Hello world")
 })
 
